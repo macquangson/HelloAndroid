@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.Widget;
 using Android.OS;
+using Android.Content;
 
 namespace HelloAndroid
 {
@@ -11,6 +12,7 @@ namespace HelloAndroid
 		Button btnHello;
 		TextView txtName;
 		EditText editTxtName;
+		Button btnOpenDetailActivity;
 		#endregion
 		/// <summary>
 		/// Map ID giữa control và Layout
@@ -18,6 +20,7 @@ namespace HelloAndroid
 		private void MapingControl()
 		{
 			btnHello = FindViewById<Button>(Resource.Id.btnHello);
+			btnOpenDetailActivity = FindViewById<Button>(Resource.Id.btnOpenDetailActivity);
 			txtName = FindViewById<TextView>(Resource.Id.txtName);
 			editTxtName = FindViewById<EditText>(Resource.Id.editTextName);
 		}
@@ -27,7 +30,11 @@ namespace HelloAndroid
 		private void SetControlEvent()
 		{
 			btnHello.Click += BtnHello_Click;
+			btnOpenDetailActivity.Click += BtnOpenDetailActivity_Click;
 		}
+
+
+
 		/// <summary>
 		/// Sự kiện OnCreate của Activiti
 		/// </summary>
@@ -50,6 +57,18 @@ namespace HelloAndroid
 		private void BtnHello_Click(object sender, System.EventArgs e)
 		{
 			Toast.MakeText(this, "Hello from " + editTxtName.Text, ToastLength.Long).Show();
+		}
+		/// <summary>
+		/// Sự kiện mở Form Detail
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void BtnOpenDetailActivity_Click(object sender, System.EventArgs e)
+		{
+			var detailActivity = new Intent(this, typeof(Resources.layout.DetailActivity));
+			detailActivity.PutExtra("MyData", editTxtName.Text);
+			StartActivity(detailActivity);
+
 		}
 	}
 }

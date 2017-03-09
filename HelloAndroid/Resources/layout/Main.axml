@@ -3,18 +3,23 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-	<TextView
+    <TextView
         android:text="Intput Name Here"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/txtName" />
-	<EditText
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/editTextName" />
-	<Button
-        android:text="Button"
+    <Button
+        android:text="Hello"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btnHello" />
+    <Button
+        android:text="Open 2nd Activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnOpenDetailActivity" />
 </LinearLayout>
